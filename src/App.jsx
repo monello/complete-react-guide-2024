@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Header from './components/Header/Header.jsx';
 import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
@@ -5,14 +7,16 @@ import TabButton from './components/TabButton/TabButton.jsx';
 import { CORE_CONCEPTS } from './data.js';
 
 function App() {
-    let tabContent = 'Please select an example above.';
+    const [selectedTopic, setSelectedTopic] = useState(
+        'Please select an example above.'
+    );
 
     function handleExampleSelect(exampleType) {
         console.log(
             `%cExample ${exampleType} Selected!`,
             'color: cornflowerblue;font-family:sans-serif; font-size: 20px'
         );
-        tabContent = exampleType;
+        setSelectedTopic(`${exampleType} example was selected.`);
     }
     return (
         <div>
@@ -45,7 +49,7 @@ function App() {
                             State
                         </TabButton>
                     </menu>
-                    {tabContent}
+                    {selectedTopic}
                 </section>
             </main>
         </div>
