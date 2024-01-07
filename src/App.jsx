@@ -5,11 +5,14 @@ import TabButton from './components/TabButton/TabButton.jsx';
 import { CORE_CONCEPTS } from './data.js';
 
 function App() {
+    let tabContent = 'Please select an example above.';
+
     function handleExampleSelect(exampleType) {
         console.log(
             `%cExample ${exampleType} Selected!`,
             'color: cornflowerblue;font-family:sans-serif; font-size: 20px'
         );
+        tabContent = exampleType;
     }
     return (
         <div>
@@ -42,6 +45,7 @@ function App() {
                             State
                         </TabButton>
                     </menu>
+                    {tabContent}
                 </section>
             </main>
         </div>
