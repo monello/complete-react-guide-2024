@@ -1,16 +1,9 @@
 import React from 'react';
 
-const TabButton = ({ children }) => {
-    function handleClick() {
-        console.log(
-            `%cHello World!`,
-            'color: cornflowerblue;font-family:sans-serif; font-size: 20px'
-        );
-    }
-
+const TabButton = ({ children, onClick }) => {
     return (
         <li>
-            <button onClick={handleClick}>{children}</button>
+            <button onClick={onClick}>{children}</button>
         </li>
     );
 };

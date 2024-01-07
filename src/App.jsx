@@ -5,6 +5,12 @@ import TabButton from './components/TabButton/TabButton.jsx';
 import { CORE_CONCEPTS } from './data.js';
 
 function App() {
+    function handleExampleSelect(exampleType) {
+        console.log(
+            `%cExample ${exampleType} Selected!`,
+            'color: cornflowerblue;font-family:sans-serif; font-size: 20px'
+        );
+    }
     return (
         <div>
             <Header />
@@ -21,10 +27,20 @@ function App() {
                 <section id="examples">
                     <h2>Example</h2>
                     <menu>
-                        <TabButton>Components</TabButton>
-                        <TabButton>JSX</TabButton>
-                        <TabButton>Props</TabButton>
-                        <TabButton>State</TabButton>
+                        <TabButton
+                            onClick={() => handleExampleSelect('components')}
+                        >
+                            Components
+                        </TabButton>
+                        <TabButton onClick={() => handleExampleSelect('jsx')}>
+                            JSX
+                        </TabButton>
+                        <TabButton onClick={() => handleExampleSelect('props')}>
+                            Props
+                        </TabButton>
+                        <TabButton onClick={() => handleExampleSelect('state')}>
+                            State
+                        </TabButton>
                     </menu>
                 </section>
             </main>
