@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Header from './components/Header/Header.jsx';
-import CoreConcepts from './components/CoreConcepts/CoreConcepts.jsx';
+import CoreConcept from './components/CoreConcept/CoreConcept.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
 
 import { CORE_CONCEPTS, EXAMPLES } from './data.js';
@@ -24,7 +24,7 @@ function App() {
                     <h2>Time to get started!</h2>
                     <ul>
                         {CORE_CONCEPTS.map((concept) => (
-                            <CoreConcepts key={concept.title} {...concept} />
+                            <CoreConcept key={concept.title} {...concept} />
                         ))}
                     </ul>
                 </section>
