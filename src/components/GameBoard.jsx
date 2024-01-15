@@ -6,7 +6,7 @@ const initialGameBoard = [
     [null, null, null],
 ];
 
-function GameBoard() {
+function GameBoard({ onSelectSquare, activeSymbol }) {
     const [gameBoard, setGameboard] = useState(initialGameBoard);
 
     function handleSelectSquare(rowIndex, colIndex) {
@@ -15,9 +15,10 @@ function GameBoard() {
             //  of the state-managed value
             // Make a deep-copy of the board before applying changes
             const updatedBoard = [...currGameBoard.map((row) => [...row])];
-            updatedBoard[rowIndex][colIndex] = 'X';
+            updatedBoard[rowIndex][colIndex] = activeSymbol;
             return updatedBoard;
         });
+        onSelectSquare();
     }
 
     return (
