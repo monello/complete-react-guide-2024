@@ -4,20 +4,15 @@ const initialGameBoard = [
     [null, null, null],
 ];
 
-function GameBoard({ onSelectSquare, activeSymbol }) {
-    // const [gameBoard, setGameboard] = useState(initialGameBoard);
+function GameBoard({ onSelectSquare, turns }) {
+    let gameBoard = initialGameBoard;
 
-    // function handleSelectSquare(rowIndex, colIndex) {
-    //     setGameboard((currGameBoard) => {
-    //         // We need to use this functional form to update the state, because we are dependent on the current (guaranteed latest version)
-    //         //  of the state-managed value
-    //         // Make a deep-copy of the board before applying changes
-    //         const updatedBoard = [...currGameBoard.map((row) => [...row])];
-    //         updatedBoard[rowIndex][colIndex] = activeSymbol;
-    //         return updatedBoard;
-    //     });
-    //     onSelectSquare();
-    // }
+    for (const turn of turns) {
+        const { square, player } = turn;
+        const { row, col } = square;
+
+        gameBoard[row][col] = player;
+    }
 
     return (
         <ol id="game-board">
@@ -28,7 +23,7 @@ function GameBoard({ onSelectSquare, activeSymbol }) {
                             <li key={colIndex}>
                                 <button
                                     onClick={() =>
-                                        handleSelectSquare(rowIndex, colIndex)
+                                        onSelectSquare(rowIndex, colIndex)
                                     }
                                 >
                                     {playerSymbol}
