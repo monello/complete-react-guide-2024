@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #6b7280;
+    color: ${({ invalid }) => (invalid ? '#f87171' : '#6b7280')};
 `;
 
 const StyledInput = styled.input`
@@ -54,7 +54,7 @@ export default function AuthInputs() {
         <div id="auth-inputs">
             <StyledDiv>
                 <p>
-                    <StyledLabel>Email</StyledLabel>
+                    <StyledLabel invalid={emailNotValid}>Email</StyledLabel>
                     <StyledInput
                         type="email"
                         className={emailNotValid ? 'invalid' : undefined}
@@ -64,7 +64,9 @@ export default function AuthInputs() {
                     />
                 </p>
                 <p>
-                    <StyledLabel>Password</StyledLabel>
+                    <StyledLabel invalid={passwordNotValid}>
+                        Password
+                    </StyledLabel>
                     <StyledInput
                         type="password"
                         className={passwordNotValid ? 'invalid' : undefined}
